@@ -1,0 +1,3 @@
+push-server/node_modules/
+push-server/vapid.json
+push-server/subscriptions.json

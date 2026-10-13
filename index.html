@@ -39,6 +39,12 @@
       <p>One swipe, slice them all. Easy to play, hard to master.</p>
     </section>
 
+    <!-- 开启推送通知 -->
+    <section class="notify">
+      <button id="notifyBtn" class="notify-btn">🔔 开启上新 / 体力提醒</button>
+      <p class="notify-tip">开启后，新关卡上线、体力回满时推送提醒你回来玩</p>
+    </section>
+
     <section class="recommend">
       <h2>You can try these games</h2>
       <div class="grid"><div></div><div></div><div></div><div></div><div></div><div></div></div>
@@ -86,6 +92,7 @@
     <div class="row"><span>可安装(prompt)</span><b id="dbgInstallable" class="no">否</b></div>
     <div class="row"><span>运行模式</span><b id="dbgMode">browser</b></div>
     <div class="row"><span>状态</span><b id="dbgState">-</b></div>
+    <div class="row"><span>通知</span><b id="dbgPush">-</b></div>
     <div class="btns">
       <button id="dbgTrigger">触发安装</button>
       <button id="dbgReset" class="sec">重置忽略</button>
@@ -95,5 +102,6 @@
 
   <script src="./app.js" defer></script>
   <script src="./pwa-install.js" defer></script>
+  <script src="./push-client.js" defer></script>
 </body>
 </html>

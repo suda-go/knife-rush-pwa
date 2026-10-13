@@ -1,0 +1,14 @@
+{
+  "name": "krf-push-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Knife Rush Fruit - Web Push 推送服务器（同时托管 PWA 静态文件）",
+  "scripts": {
+    "start": "node server.js",
+    "keys": "node generate-vapid.js",
+    "send": "node send.js"
+  },
+  "dependencies": {
+    "web-push": "^3.6.7"
+  }
+}
