@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#2f7bff" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./pwa/icon-192.png" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>Knife Rush Fruit</title>
+</head>
+<body>
+  <main class="page">
+    <!-- 头部：图标 / 标题 / 标签 / 评分（与标题一致的切水果创意） -->
+    <section class="hero">
+      <img class="icon" src="./pwa/icon-192.png" alt="Knife Rush Fruit" />
+      <div class="meta">
+        <h1>Knife Rush Fruit</h1>
+        <div class="tags"><span>Arcade</span><span>Slicing</span><span>Casual</span></div>
+        <div class="rating">★ 4.6 · 1M+ players · Free</div>
+      </div>
+    </section>
+
+    <!-- 玩法展示位 -->
+    <section class="shots">
+      <div class="shot s1"></div>
+      <div class="shot s2">▶</div>
+      <div class="shot s3"></div>
+    </section>
+
+    <p class="pitch">Slice every fruit before the timer runs out!</p>
+
+    <!-- 主 CTA -->
+    <button id="playBtn" class="play">▶ Play Free<small>No download · Instant play</small></button>
+
+    <section class="about">
+      <h2>About this game</h2>
+      <p>One swipe, slice them all. Easy to play, hard to master.</p>
+    </section>
+
+    <section class="recommend">
+      <h2>You can try these games</h2>
+      <div class="grid"><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </section>
+  </main>
+
+  <!-- 迷你游戏遮罩（点 Play 打开，模拟即点即玩） -->
+  <div id="gameOverlay" class="overlay" hidden>
+    <div class="bar">
+      <span>🍉 Knife Rush Fruit</span>
+      <span id="gameStat">Score 0 · 15s</span>
+      <button id="gameClose">结束</button>
+    </div>
+    <canvas id="gameCanvas"></canvas>
+    <div class="hint">点屏幕上的水果把它切开</div>
+  </div>
+
+  <!-- 添加到桌面 引导条 -->
+  <div id="a2hs" class="a2hs" hidden>
+    <img src="./pwa/icon-192.png" alt="" />
+    <div class="a2hs-text">
+      <b>添加到桌面</b>
+      <span>下次一键开玩，无需重新找</span>
+    </div>
+    <button id="a2hsInstall">添加</button>
+    <button id="a2hsClose" aria-label="关闭">×</button>
+  </div>
+
+  <!-- 兜底：beforeinstallprompt 没触发时的手动引导 -->
+  <div id="manualTip" class="sheet" hidden>
+    <div class="card">
+      <h3>把游戏添加到桌面</h3>
+      <ol>
+        <li>点右上角浏览器菜单 <b>⋮</b></li>
+        <li>选择 <b>「安装应用」</b> 或 <b>「添加到主屏幕」</b></li>
+        <li>确认，桌面上就会出现图标</li>
+      </ol>
+      <button class="ghost" id="manualClose">我知道了</button>
+    </div>
+  </div>
+
+  <!-- 调试面板（仅演示用，接入线上时删掉） -->
+  <div id="dbg" class="dbg">
+    <div class="row"><span>Service Worker</span><b id="dbgSW" class="no">…</b></div>
+    <div class="row"><span>可安装(prompt)</span><b id="dbgInstallable" class="no">否</b></div>
+    <div class="row"><span>运行模式</span><b id="dbgMode">browser</b></div>
+    <div class="row"><span>状态</span><b id="dbgState">-</b></div>
+    <div class="btns">
+      <button id="dbgTrigger">触发安装</button>
+      <button id="dbgReset" class="sec">重置忽略</button>
+      <button id="dbgToggle" class="sec">收起</button>
+    </div>
+  </div>
+
+  <script src="./app.js" defer></script>
+  <script src="./pwa-install.js" defer></script>
+</body>
+</html>
